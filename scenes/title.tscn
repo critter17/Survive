@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://biljdor2h5agf"]
+
+[ext_resource type="Script" path="res://scripts/Start_Button.gd" id="1_frocd"]
+
+[node name="Title" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 736.0
+offset_top = 191.0
+offset_right = 1190.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 128
+text = "Survive"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Start_Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 872.0
+offset_top = 453.0
+offset_right = 1049.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "Start"
+script = ExtResource("1_frocd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Controls" type="RichTextLabel" parent="."]
+layout_direction = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 760.0
+offset_top = 624.0
+offset_right = 1220.0
+offset_bottom = 808.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "Press space to change gravity"
+fit_content = true
+
+[connection signal="button_up" from="Start_Button" to="Start_Button" method="_on_button_up"]

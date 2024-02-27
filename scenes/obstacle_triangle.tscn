@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0ugimwqyufkx"]
+
+[ext_resource type="Script" path="res://scripts/obstacle_triangle.gd" id="1_b1iwq"]
+[ext_resource type="Texture2D" uid="uid://ct5t7ncco2f8o" path="res://assets/obstacle_spike.png" id="1_i7c0w"]
+
+[node name="obstacle_spike" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_b1iwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i7c0w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -1.05)
+scale = Vector2(1, 1.4375)
+polygon = PackedVector2Array(-16, 12, 0, -11, 16, 12)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

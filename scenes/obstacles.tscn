@@ -1,0 +1,722 @@
+[gd_scene load_steps=13 format=3 uid="uid://c266c4geowfcy"]
+
+[ext_resource type="PackedScene" uid="uid://c0ugimwqyufkx" path="res://scenes/obstacle_triangle.tscn" id="1_11c0w"]
+[ext_resource type="Script" path="res://scripts/obstacles.gd" id="1_wlcpp"]
+[ext_resource type="PackedScene" uid="uid://r61rx4ukf4ie" path="res://scenes/obstacle_laser.tscn" id="3_m0cfg"]
+[ext_resource type="PackedScene" uid="uid://bfgp2ooh8yd65" path="res://scenes/obstacle_box.tscn" id="4_kw0sx"]
+[ext_resource type="Script" path="res://scripts/NarrowTrigger.gd" id="5_dtrde"]
+[ext_resource type="PackedScene" uid="uid://cnm3v3112o2ii" path="res://scenes/obstacle_circles.tscn" id="6_7rj3g"]
+[ext_resource type="Script" path="res://scripts/RedButton.gd" id="7_0n1vh"]
+[ext_resource type="Texture2D" uid="uid://ch1c2uo8byv1v" path="res://assets/red-button.png" id="7_hdy2i"]
+[ext_resource type="Script" path="res://scripts/StopCameraTrigger.gd" id="8_mbwrl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg3o4"]
+size = Vector2(20, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r23c1"]
+size = Vector2(55.999, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu24k"]
+size = Vector2(20, 640)
+
+[node name="obstacles" type="Node2D"]
+script = ExtResource("1_wlcpp")
+
+[node name="Section1" type="Node2D" parent="."]
+
+[node name="obstacle_spike" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(-64, 288)
+
+[node name="obstacle_spike2" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(0, 288)
+
+[node name="obstacle_spike3" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(64, 288)
+
+[node name="obstacle_spike4" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(576, -288)
+rotation = -3.14159
+
+[node name="obstacle_spike5" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(704, -288)
+rotation = -3.14159
+
+[node name="obstacle_spike6" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(640, -288)
+rotation = -3.14159
+
+[node name="obstacle_spike7" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(1536, -288)
+rotation = -3.14159
+
+[node name="obstacle_spike8" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(1664, -288)
+rotation = -3.14159
+
+[node name="obstacle_spike9" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(1600, -288)
+rotation = -3.14159
+
+[node name="obstacle_spike10" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(1536, 288)
+
+[node name="obstacle_spike11" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(1664, 288)
+
+[node name="obstacle_spike12" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(1600, 288)
+
+[node name="obstacle_spike13" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(3520, 288)
+
+[node name="obstacle_spike14" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(3648, 288)
+
+[node name="obstacle_spike15" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(3584, 288)
+
+[node name="obstacle_spike16" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(4800, -288)
+rotation = -3.14159
+
+[node name="obstacle_spike17" parent="Section1" instance=ExtResource("1_11c0w")]
+position = Vector2(4800, 287)
+
+[node name="obstacle_laser" parent="Section1" instance=ExtResource("3_m0cfg")]
+position = Vector2(2496, 258)
+
+[node name="obstacle_laser2" parent="Section1" instance=ExtResource("3_m0cfg")]
+position = Vector2(3074, -255)
+
+[node name="obstacle_laser3" parent="Section1" instance=ExtResource("3_m0cfg")]
+position = Vector2(3841, -255)
+
+[node name="obstacle_laser4" parent="Section1" instance=ExtResource("3_m0cfg")]
+position = Vector2(4159, 257)
+
+[node name="obstacle_laser5" parent="Section1" instance=ExtResource("3_m0cfg")]
+position = Vector2(4608, 0)
+
+[node name="Section2" type="Node2D" parent="."]
+
+[node name="NarrowTrigger" type="Area2D" parent="Section2"]
+position = Vector2(5312, 0)
+script = ExtResource("5_dtrde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section2/NarrowTrigger"]
+shape = SubResource("RectangleShape2D_sg3o4")
+
+[node name="obstacle_spike18" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(7328, -258)
+rotation = 1.5708
+
+[node name="obstacle_box" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(6592, 238)
+
+[node name="obstacle_box2" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(6848, -258)
+
+[node name="obstacle_box3" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(7104, -258)
+
+[node name="obstacle_box4" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(7232, -258)
+
+[node name="obstacle_box5" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(6976, -258)
+
+[node name="obstacle_spike19" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(7711, 238)
+rotation = -1.5708
+
+[node name="obstacle_spike20" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(8768, -192)
+rotation = 3.14159
+
+[node name="obstacle_box6" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(7808, 238)
+
+[node name="obstacle_box7" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(8064, 238)
+
+[node name="obstacle_box8" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(8192, 238)
+
+[node name="obstacle_box9" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(7936, 238)
+
+[node name="obstacle_spike22" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(8799, 238)
+rotation = -1.5708
+
+[node name="obstacle_spike23" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(8864, 174)
+
+[node name="obstacle_spike24" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(9312, 174)
+
+[node name="obstacle_spike26" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(10048, 238)
+
+[node name="obstacle_spike27" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(10112, 238)
+
+[node name="obstacle_spike28" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(10176, 238)
+
+[node name="obstacle_spike29" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(10432, 66)
+rotation = 3.14159
+
+[node name="obstacle_spike30" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(10496, 66)
+rotation = 3.14159
+
+[node name="obstacle_spike31" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(10560, 66)
+rotation = 3.14159
+
+[node name="obstacle_spike32" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(10176, -255)
+rotation = 3.14159
+
+[node name="obstacle_spike33" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(10400, -65)
+
+[node name="obstacle_spike34" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(10624, -255)
+rotation = 3.14159
+
+[node name="obstacle_spike25" parent="Section2" instance=ExtResource("1_11c0w")]
+position = Vector2(9376, 238)
+rotation = 1.5708
+
+[node name="obstacle_box14" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(8896, 238)
+
+[node name="obstacle_box15" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(9152, 238)
+
+[node name="obstacle_box16" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(9280, 238)
+
+[node name="obstacle_box17" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(9024, 238)
+
+[node name="obstacle_box18" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(9856, -256)
+
+[node name="obstacle_box19" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(9728, -256)
+
+[node name="obstacle_box20" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(10176, 0)
+
+[node name="obstacle_box21" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(10048, 0)
+
+[node name="obstacle_box22" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(10432, 0)
+
+[node name="obstacle_box23" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(10304, 0)
+
+[node name="obstacle_box24" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(10688, 0)
+
+[node name="obstacle_box25" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(10560, 0)
+
+[node name="obstacle_box10" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(8579, -256)
+
+[node name="obstacle_box11" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(8835, -256)
+
+[node name="obstacle_box12" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(8963, -256)
+
+[node name="obstacle_box13" parent="Section2" instance=ExtResource("4_kw0sx")]
+position = Vector2(8707, -256)
+
+[node name="obstacle_laser7" parent="Section2" instance=ExtResource("3_m0cfg")]
+position = Vector2(9216, -192)
+
+[node name="obstacle_laser8" parent="Section2" instance=ExtResource("3_m0cfg")]
+position = Vector2(9664, 0)
+
+[node name="Section3" type="Node2D" parent="."]
+
+[node name="NarrowTrigger2" type="Area2D" parent="Section3"]
+position = Vector2(11000, 0)
+script = ExtResource("5_dtrde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section3/NarrowTrigger2"]
+shape = SubResource("RectangleShape2D_sg3o4")
+
+[node name="obstacle_spike35" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11552, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike37" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11680, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike38" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11616, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike36" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11552, 188)
+
+[node name="obstacle_spike39" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11616, 188)
+
+[node name="obstacle_spike40" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11680, 188)
+
+[node name="obstacle_spike41" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11744, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike43" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11808, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike42" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13664, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike57" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13792, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike58" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13728, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike59" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13856, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike60" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13920, -228)
+rotation = -3.14159
+
+[node name="obstacle_spike46" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(12256, -228)
+rotation = -1.5708
+
+[node name="obstacle_spike47" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(12448, -228)
+rotation = 1.5708
+
+[node name="obstacle_spike44" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11744, 188)
+
+[node name="obstacle_spike45" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(11808, 188)
+
+[node name="obstacle_spike61" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13664, 188)
+
+[node name="obstacle_spike62" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13728, 188)
+
+[node name="obstacle_spike63" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13792, 188)
+
+[node name="obstacle_spike64" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13856, 188)
+
+[node name="obstacle_spike65" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13920, 188)
+
+[node name="obstacle_laser10" parent="Section3" instance=ExtResource("3_m0cfg")]
+position = Vector2(12192, 0)
+
+[node name="obstacle_laser11" parent="Section3" instance=ExtResource("3_m0cfg")]
+position = Vector2(13568, 128)
+
+[node name="obstacle_box26" parent="Section3" instance=ExtResource("4_kw0sx")]
+position = Vector2(12352, -228)
+
+[node name="obstacle_spike50" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(12768, -228)
+rotation = -1.5708
+
+[node name="obstacle_spike51" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(12960, -228)
+rotation = 1.5708
+
+[node name="obstacle_box28" parent="Section3" instance=ExtResource("4_kw0sx")]
+position = Vector2(12864, -228)
+
+[node name="obstacle_spike52" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(12942, 188)
+rotation = -1.5708
+
+[node name="obstacle_spike53" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13134, 188)
+rotation = 1.5708
+
+[node name="obstacle_box29" parent="Section3" instance=ExtResource("4_kw0sx")]
+position = Vector2(13038, 188)
+
+[node name="obstacle_spike54" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13269, -228)
+rotation = -1.5708
+
+[node name="obstacle_spike56" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13365, -163)
+rotation = 3.14159
+
+[node name="obstacle_spike55" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(13461, -228)
+rotation = 1.5708
+
+[node name="obstacle_box30" parent="Section3" instance=ExtResource("4_kw0sx")]
+position = Vector2(13365, -228)
+
+[node name="obstacle_spike48" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(12385, 188)
+rotation = -1.5708
+
+[node name="obstacle_spike49" parent="Section3" instance=ExtResource("1_11c0w")]
+position = Vector2(12577, 188)
+rotation = 1.5708
+
+[node name="obstacle_box27" parent="Section3" instance=ExtResource("4_kw0sx")]
+position = Vector2(12481, 188)
+
+[node name="Section4" type="Node2D" parent="."]
+
+[node name="NarrowTrigger3" type="Area2D" parent="Section4"]
+position = Vector2(14154, 0)
+script = ExtResource("5_dtrde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section4/NarrowTrigger3"]
+shape = SubResource("RectangleShape2D_sg3o4")
+
+[node name="obstacle_circles" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(14792, -166)
+
+[node name="obstacle_circles2" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(14792, 101)
+
+[node name="obstacle_circles3" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(15041, 101)
+
+[node name="obstacle_circles4" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(15680, -1)
+
+[node name="obstacle_circles5" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(15296, -166)
+
+[node name="obstacle_circles6" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(15296, -64)
+
+[node name="obstacle_circles7" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(15680, 99)
+
+[node name="obstacle_circles9" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(16320, -166)
+
+[node name="obstacle_circles10" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(16448, -10)
+
+[node name="obstacle_circles11" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(16384, -88)
+
+[node name="obstacle_circles12" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(16512, 68)
+
+[node name="obstacle_circles13" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(16704, 154)
+
+[node name="obstacle_circles14" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(16832, -10)
+
+[node name="obstacle_circles15" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(16896, -88)
+
+[node name="obstacle_circles16" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(16768, 68)
+
+[node name="obstacle_circles8" parent="Section4" instance=ExtResource("6_7rj3g")]
+position = Vector2(15873, -166)
+
+[node name="obstacle_box" parent="Section4" instance=ExtResource("4_kw0sx")]
+position = Vector2(15937, 138)
+
+[node name="obstacle_box2" parent="Section4" instance=ExtResource("4_kw0sx")]
+position = Vector2(16065, 138)
+
+[node name="obstacle_spike" parent="Section4" instance=ExtResource("1_11c0w")]
+position = Vector2(16097, 73)
+
+[node name="Section5" type="Node2D" parent="."]
+
+[node name="NarrowTrigger4" type="Area2D" parent="Section5"]
+position = Vector2(17098, 0)
+script = ExtResource("5_dtrde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section5/NarrowTrigger4"]
+shape = SubResource("RectangleShape2D_sg3o4")
+
+[node name="obstacle_spike2" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(17859, 23)
+
+[node name="obstacle_spike5" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(18400, 88)
+
+[node name="obstacle_spike6" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(18464, 88)
+
+[node name="obstacle_spike7" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(18528, 88)
+
+[node name="obstacle_spike11" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(19168, 88)
+
+[node name="obstacle_spike13" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(19488, -40)
+rotation = -1.5708
+
+[node name="obstacle_spike14" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(19680, -40)
+rotation = 1.5708
+
+[node name="obstacle_spike12" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(19168, -168)
+rotation = 3.14159
+
+[node name="obstacle_spike8" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(18400, -168)
+rotation = 3.14159
+
+[node name="obstacle_spike9" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(18464, -168)
+rotation = 3.14159
+
+[node name="obstacle_spike10" parent="Section5" instance=ExtResource("1_11c0w")]
+position = Vector2(18528, -168)
+rotation = 3.14159
+
+[node name="obstacle_box3" parent="Section5" instance=ExtResource("4_kw0sx")]
+position = Vector2(17857, 88)
+
+[node name="obstacle_box4" parent="Section5" instance=ExtResource("4_kw0sx")]
+position = Vector2(17857, -168)
+
+[node name="obstacle_box5" parent="Section5" instance=ExtResource("4_kw0sx")]
+position = Vector2(18752, -40)
+
+[node name="obstacle_box6" parent="Section5" instance=ExtResource("4_kw0sx")]
+position = Vector2(18880, -40)
+
+[node name="obstacle_box7" parent="Section5" instance=ExtResource("4_kw0sx")]
+position = Vector2(19008, -40)
+
+[node name="obstacle_box8" parent="Section5" instance=ExtResource("4_kw0sx")]
+position = Vector2(19584, -40)
+
+[node name="obstacle_circles17" parent="Section5" instance=ExtResource("6_7rj3g")]
+position = Vector2(18240, -106)
+
+[node name="obstacle_circles18" parent="Section5" instance=ExtResource("6_7rj3g")]
+position = Vector2(18304, -184)
+
+[node name="obstacle_circles19" parent="Section5" instance=ExtResource("6_7rj3g")]
+position = Vector2(18176, -28)
+
+[node name="obstacle_circles22" parent="Section5" instance=ExtResource("6_7rj3g")]
+position = Vector2(18880, -184)
+
+[node name="obstacle_circles23" parent="Section5" instance=ExtResource("6_7rj3g")]
+position = Vector2(18880, 16)
+
+[node name="obstacle_laser12" parent="Section5" instance=ExtResource("3_m0cfg")]
+position = Vector2(19391.7, -84.5874)
+
+[node name="obstacle_laser13" parent="Section5" instance=ExtResource("3_m0cfg")]
+position = Vector2(19391.7, 7.41257)
+
+[node name="Section6" type="Node2D" parent="."]
+
+[node name="NarrowTrigger5" type="Area2D" parent="Section6"]
+position = Vector2(19914, 0)
+script = ExtResource("5_dtrde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section6/NarrowTrigger5"]
+shape = SubResource("RectangleShape2D_sg3o4")
+
+[node name="obstacle_spike15" parent="Section6" instance=ExtResource("1_11c0w")]
+position = Vector2(20352, 38)
+
+[node name="obstacle_spike17" parent="Section6" instance=ExtResource("1_11c0w")]
+position = Vector2(20416, 38)
+
+[node name="obstacle_spike18" parent="Section6" instance=ExtResource("1_11c0w")]
+position = Vector2(20480, 38)
+
+[node name="obstacle_spike16" parent="Section6" instance=ExtResource("1_11c0w")]
+position = Vector2(20608, -138)
+rotation = 3.14159
+
+[node name="obstacle_spike19" parent="Section6" instance=ExtResource("1_11c0w")]
+position = Vector2(20672, -138)
+rotation = 3.14159
+
+[node name="obstacle_spike20" parent="Section6" instance=ExtResource("1_11c0w")]
+position = Vector2(20736, -138)
+rotation = 3.14159
+
+[node name="obstacle_spike22" parent="Section6" instance=ExtResource("1_11c0w")]
+position = Vector2(20992, -138)
+rotation = 3.14159
+
+[node name="obstacle_spike21" parent="Section6" instance=ExtResource("1_11c0w")]
+position = Vector2(20896, 38)
+rotation = -1.5708
+
+[node name="obstacle_box9" parent="Section6" instance=ExtResource("4_kw0sx")]
+position = Vector2(20992, 38)
+
+[node name="obstacle_box10" parent="Section6" instance=ExtResource("4_kw0sx")]
+position = Vector2(21376, -34)
+scale = Vector2(1, 0.25)
+
+[node name="obstacle_box11" parent="Section6" instance=ExtResource("4_kw0sx")]
+position = Vector2(21504, -34)
+scale = Vector2(1, 0.25)
+
+[node name="obstacle_circles24" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21184, -64)
+
+[node name="obstacle_circles25" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21216, -64)
+
+[node name="obstacle_circles26" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21248, -64)
+
+[node name="obstacle_circles27" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21280, -64)
+
+[node name="obstacle_circles28" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21312, -64)
+
+[node name="obstacle_circles29" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21344, -64)
+
+[node name="obstacle_circles30" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21376, -64)
+
+[node name="obstacle_circles31" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21408, -64)
+
+[node name="obstacle_circles32" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21440, -64)
+
+[node name="obstacle_circles33" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21472, -64)
+
+[node name="obstacle_circles34" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21504, -64)
+
+[node name="obstacle_circles35" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21536, -64)
+
+[node name="obstacle_circles36" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21568, -64)
+
+[node name="obstacle_circles40" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21824, -154)
+
+[node name="obstacle_circles41" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21856, -154)
+
+[node name="obstacle_circles42" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21888, -154)
+
+[node name="obstacle_circles43" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21920, -154)
+
+[node name="obstacle_circles44" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21952, -154)
+
+[node name="obstacle_circles45" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21984, -154)
+
+[node name="obstacle_circles46" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(22016, -154)
+
+[node name="obstacle_circles47" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(22048, -154)
+
+[node name="obstacle_circles48" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21824, 54)
+
+[node name="obstacle_circles49" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21856, 54)
+
+[node name="obstacle_circles50" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21888, 54)
+
+[node name="obstacle_circles51" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21920, 54)
+
+[node name="obstacle_circles52" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21952, 54)
+
+[node name="obstacle_circles53" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(21984, 54)
+
+[node name="obstacle_circles54" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(22016, 54)
+
+[node name="obstacle_circles55" parent="Section6" instance=ExtResource("6_7rj3g")]
+position = Vector2(22048, 54)
+
+[node name="obstacle_laser14" parent="Section6" instance=ExtResource("3_m0cfg")]
+position = Vector2(21472, 64)
+
+[node name="obstacle_laser" parent="Section6" instance=ExtResource("3_m0cfg")]
+position = Vector2(21440.4, -92.1032)
+
+[node name="Section7" type="Node2D" parent="."]
+
+[node name="NarrowTrigger6" type="Area2D" parent="Section7"]
+position = Vector2(22218, 0)
+script = ExtResource("5_dtrde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section7/NarrowTrigger6"]
+shape = SubResource("RectangleShape2D_sg3o4")
+
+[node name="RedButton" type="Area2D" parent="Section7"]
+position = Vector2(23699.7, -60.3568)
+script = ExtResource("7_0n1vh")
+
+[node name="Button Sprite" type="Sprite2D" parent="Section7/RedButton"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_hdy2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section7/RedButton"]
+position = Vector2(36.2559, -0.143188)
+shape = SubResource("RectangleShape2D_r23c1")
+
+[node name="StopCameraTrigger" type="Area2D" parent="Section7"]
+position = Vector2(23283, 22)
+script = ExtResource("8_mbwrl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Section7/StopCameraTrigger"]
+shape = SubResource("RectangleShape2D_wu24k")
+
+[connection signal="body_entered" from="Section2/NarrowTrigger" to="Section2/NarrowTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="Section3/NarrowTrigger2" to="Section3/NarrowTrigger2" method="_on_body_entered"]
+[connection signal="body_entered" from="Section4/NarrowTrigger3" to="Section4/NarrowTrigger3" method="_on_body_entered"]
+[connection signal="body_entered" from="Section5/NarrowTrigger4" to="Section5/NarrowTrigger4" method="_on_body_entered"]
+[connection signal="body_entered" from="Section6/NarrowTrigger5" to="Section6/NarrowTrigger5" method="_on_body_entered"]
+[connection signal="body_entered" from="Section7/NarrowTrigger6" to="Section7/NarrowTrigger6" method="_on_body_entered"]
+[connection signal="body_entered" from="Section7/RedButton" to="Section7/RedButton" method="_on_body_entered"]
+[connection signal="body_entered" from="Section7/StopCameraTrigger" to="Section7/StopCameraTrigger" method="_on_body_entered"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnm3v3112o2ii"]
+
+[ext_resource type="Texture2D" uid="uid://b3p218ep3liwe" path="res://assets/obstacle_circle.png" id="1_6lafb"]
+[ext_resource type="Script" path="res://scripts/obstacle_circles.gd" id="1_cr2mu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_baevo"]
+radius = 16.0
+
+[node name="obstacle_circles" type="Area2D"]
+script = ExtResource("1_cr2mu")
+
+[node name="Circle Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_6lafb")
+
+[node name="Circle Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_baevo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

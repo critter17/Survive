@@ -1,0 +1,283 @@
+[gd_scene load_steps=26 format=3 uid="uid://dme25shjb36a0"]
+
+[ext_resource type="Script" path="res://scripts/World.gd" id="1_58h2n"]
+[ext_resource type="PackedScene" uid="uid://wj6bijswsqe3" path="res://scenes/player.tscn" id="2_6vnag"]
+[ext_resource type="PackedScene" uid="uid://c266c4geowfcy" path="res://scenes/obstacles.tscn" id="2_y53vx"]
+[ext_resource type="Script" path="res://scripts/PlayerDeathTrigger.gd" id="3_cwbvu"]
+[ext_resource type="Script" path="res://scripts/Checkpoint 1.gd" id="5_xnkq1"]
+[ext_resource type="Script" path="res://scripts/Checkpoint 2.gd" id="6_n7xpk"]
+[ext_resource type="Script" path="res://scripts/Reset Game.gd" id="7_q6mlo"]
+[ext_resource type="Script" path="res://scripts/Checkpoint 3.gd" id="7_xyhsl"]
+[ext_resource type="Script" path="res://scripts/Checkpoint 4.gd" id="8_pt4y7"]
+[ext_resource type="Script" path="res://scripts/Checkpoint 5.gd" id="9_rxvly"]
+[ext_resource type="Script" path="res://scripts/Checkpoint 6.gd" id="10_cm5ur"]
+[ext_resource type="Script" path="res://scripts/Debug Reset Scene.gd" id="11_wgjm2"]
+[ext_resource type="Script" path="res://scripts/Exit.gd" id="12_vy1au"]
+
+[sub_resource type="Gradient" id="Gradient_viky1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.188235, 0.14902, 0.156863, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wwon8"]
+gradient = SubResource("Gradient_viky1")
+width = 1
+height = 1
+
+[sub_resource type="Gradient" id="Gradient_gv2jk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_32m6e"]
+gradient = SubResource("Gradient_gv2jk")
+width = 320
+height = 320
+fill_to = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f0atl"]
+a = Vector2(-160, 0)
+b = Vector2(160, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_iketv"]
+a = Vector2(-160, 0)
+b = Vector2(160, 0)
+
+[sub_resource type="Animation" id="Animation_hvt0n"]
+resource_name = "Camera_Shake"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(0, 0), Vector2(0, 0), Vector2(16, 9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%World/../Midground Right:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%World/../Midground Left:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_knlf5"]
+_data = {
+"Camera_Shake": SubResource("Animation_hvt0n")
+}
+
+[sub_resource type="Gradient" id="Gradient_1fn3r"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.188235, 0.14902, 0.156863, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u4klp"]
+gradient = SubResource("Gradient_1fn3r")
+width = 1
+height = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1ry2"]
+size = Vector2(58, 640)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtbc1"]
+size = Vector2(56, 640)
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(958, 544)
+scale = Vector2(2304, 1296)
+texture = SubResource("GradientTexture2D_wwon8")
+
+[node name="World" type="Node2D" parent="."]
+unique_name_in_owner = true
+visibility_layer = 4
+position = Vector2(1072, 455.615)
+scale = Vector2(2, 2)
+script = ExtResource("1_58h2n")
+
+[node name="Foreground" type="Sprite2D" parent="World"]
+position = Vector2(-56, 40)
+texture = SubResource("GradientTexture2D_32m6e")
+
+[node name="Floor" type="StaticBody2D" parent="World"]
+position = Vector2(-57, 40)
+
+[node name="Floor" type="CollisionShape2D" parent="World/Floor"]
+position = Vector2(0, 160)
+shape = SubResource("SegmentShape2D_f0atl")
+
+[node name="Ceiling" type="StaticBody2D" parent="World"]
+position = Vector2(-57, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ceiling"]
+position = Vector2(0, -160)
+shape = SubResource("SegmentShape2D_iketv")
+
+[node name="FadeToWhite" type="AnimationPlayer" parent="World"]
+libraries = {
+"": SubResource("AnimationLibrary_knlf5")
+}
+
+[node name="obstacles" parent="." instance=ExtResource("2_y53vx")]
+unique_name_in_owner = true
+position = Vector2(1464, 536)
+
+[node name="Player" parent="." instance=ExtResource("2_6vnag")]
+unique_name_in_owner = true
+position = Vector2(768, 824)
+
+[node name="Midground Right" type="Sprite2D" parent="."]
+position = Vector2(1780, 520)
+scale = Vector2(1000, 1000)
+texture = SubResource("GradientTexture2D_u4klp")
+
+[node name="Midground Left" type="Sprite2D" parent="."]
+position = Vector2(140, 520)
+scale = Vector2(1000, 1000)
+texture = SubResource("GradientTexture2D_u4klp")
+
+[node name="LaserSoundTrigger" type="Area2D" parent="."]
+position = Vector2(1296, 536)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserSoundTrigger"]
+position = Vector2(19, 0)
+shape = SubResource("RectangleShape2D_q1ry2")
+
+[node name="PlayerDeathTrigger" type="Area2D" parent="."]
+position = Vector2(600, 536)
+script = ExtResource("3_cwbvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeathTrigger"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_xtbc1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(1, 1, 1, 0)
+
+[node name="Checkpoint 1" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+text = "Checkpoint 1"
+script = ExtResource("5_xnkq1")
+
+[node name="Checkpoint 2" type="Button" parent="."]
+offset_top = 40.0
+offset_right = 109.0
+offset_bottom = 71.0
+focus_mode = 0
+text = "Checkpoint 2"
+script = ExtResource("6_n7xpk")
+
+[node name="Checkpoint 3" type="Button" parent="."]
+offset_top = 80.0
+offset_right = 109.0
+offset_bottom = 111.0
+focus_mode = 0
+text = "Checkpoint 3
+"
+script = ExtResource("7_xyhsl")
+
+[node name="Checkpoint 4" type="Button" parent="."]
+offset_top = 120.0
+offset_right = 109.0
+offset_bottom = 151.0
+focus_mode = 0
+text = "Checkpoint 4
+"
+script = ExtResource("8_pt4y7")
+
+[node name="Checkpoint 5" type="Button" parent="."]
+offset_top = 160.0
+offset_right = 109.0
+offset_bottom = 191.0
+focus_mode = 0
+text = "Checkpoint 5"
+script = ExtResource("9_rxvly")
+
+[node name="Checkpoint 6" type="Button" parent="."]
+offset_top = 200.0
+offset_right = 109.0
+offset_bottom = 231.0
+focus_mode = 0
+text = "Checkpoint 6"
+script = ExtResource("10_cm5ur")
+
+[node name="Debug Reset Scene" type="Button" parent="."]
+offset_top = 240.0
+offset_right = 101.0
+offset_bottom = 271.0
+focus_mode = 0
+text = "Reset Game"
+script = ExtResource("11_wgjm2")
+
+[node name="Reset Scene" type="Button" parent="."]
+offset_left = 912.0
+offset_top = 520.0
+offset_right = 1013.0
+offset_bottom = 551.0
+focus_mode = 0
+text = "Restart"
+script = ExtResource("7_q6mlo")
+
+[node name="Exit" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 944.0
+offset_top = 592.0
+offset_right = 981.0
+offset_bottom = 623.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Exit"
+script = ExtResource("12_vy1au")
+
+[connection signal="animation_finished" from="World/FadeToWhite" to="World" method="_on_fade_to_white_animation_finished"]
+[connection signal="body_entered" from="PlayerDeathTrigger" to="PlayerDeathTrigger" method="_on_body_entered"]
+[connection signal="button_up" from="Checkpoint 1" to="Checkpoint 1" method="_on_button_up"]
+[connection signal="button_up" from="Checkpoint 2" to="Checkpoint 2" method="_on_button_up"]
+[connection signal="button_up" from="Checkpoint 3" to="Checkpoint 3" method="_on_button_up"]
+[connection signal="button_up" from="Checkpoint 4" to="Checkpoint 4" method="_on_button_up"]
+[connection signal="button_up" from="Checkpoint 5" to="Checkpoint 5" method="_on_button_up"]
+[connection signal="button_up" from="Checkpoint 6" to="Checkpoint 6" method="_on_button_up"]
+[connection signal="button_up" from="Debug Reset Scene" to="Debug Reset Scene" method="_on_button_up"]
+[connection signal="button_up" from="Reset Scene" to="Reset Scene" method="_on_button_up"]
+[connection signal="button_up" from="Exit" to="Exit" method="_on_button_up"]

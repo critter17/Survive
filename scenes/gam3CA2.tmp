@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://dme25shjb36a0"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_0hkcr"]
+[ext_resource type="PackedScene" uid="uid://c0ugimwqyufkx" path="res://scenes/obstacle_triangle.tscn" id="2_b0dv2"]
+
+[sub_resource type="Gradient" id="Gradient_viky1"]
+offsets = PackedFloat32Array(0.986622, 1)
+colors = PackedColorArray(0.189411, 0.150756, 0.157255, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wwon8"]
+gradient = SubResource("Gradient_viky1")
+width = 1
+height = 1
+
+[sub_resource type="Gradient" id="Gradient_gv2jk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_32m6e"]
+gradient = SubResource("Gradient_gv2jk")
+fill_to = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_f0atl"]
+a = Vector2(-160, 0)
+b = Vector2(160, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_iketv"]
+a = Vector2(-160, 0)
+b = Vector2(160, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8txfl"]
+a = Vector2(0, -160)
+b = Vector2(0, 160)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j4h82"]
+a = Vector2(0, -160)
+b = Vector2(0, 160)
+
+[sub_resource type="Gradient" id="Gradient_o2tsq"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.236563, 0.614527, 0.41203, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r8gxg"]
+gradient = SubResource("Gradient_o2tsq")
+width = 1
+height = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tjuc"]
+size = Vector2(8, 8)
+
+[node name="Game" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+position = Vector2(1072, 456)
+scale = Vector2(2, 2)
+
+[node name="Background" type="Sprite2D" parent="World"]
+position = Vector2(-57, 44)
+scale = Vector2(1152, 648)
+texture = SubResource("GradientTexture2D_wwon8")
+
+[node name="Foreground" type="Sprite2D" parent="World"]
+position = Vector2(-57, 40)
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture2D_32m6e")
+
+[node name="Floor" type="StaticBody2D" parent="World"]
+position = Vector2(-57, 40)
+
+[node name="Floor" type="CollisionShape2D" parent="World/Floor"]
+position = Vector2(0, 160)
+shape = SubResource("SegmentShape2D_f0atl")
+
+[node name="Ceiling" type="StaticBody2D" parent="World"]
+position = Vector2(-57, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ceiling"]
+position = Vector2(0, -160)
+shape = SubResource("SegmentShape2D_iketv")
+
+[node name="Left Wall" type="StaticBody2D" parent="World"]
+position = Vector2(-57, 40)
+
+[node name="Left Wall" type="CollisionShape2D" parent="World/Left Wall"]
+position = Vector2(-160, 0)
+shape = SubResource("SegmentShape2D_8txfl")
+
+[node name="Right Wall" type="StaticBody2D" parent="World"]
+position = Vector2(-57, 40)
+
+[node name="Right Wall" type="CollisionShape2D" parent="World/Right Wall"]
+position = Vector2(160, 0)
+shape = SubResource("SegmentShape2D_j4h82")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(960, 840)
+scale = Vector2(4, 4)
+script = ExtResource("1_0hkcr")
+
+[node name="Player" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(8, 8)
+texture = SubResource("GradientTexture2D_r8gxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_0tjuc")
+
+[node name="Obstacles" type="Node2D" parent="."]
+position = Vector2(1608, 696)
+
+[node name="obstacle_spike" parent="Obstacles" instance=ExtResource("2_b0dv2")]
+position = Vector2(-392, 144)
